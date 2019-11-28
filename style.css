@@ -40,8 +40,11 @@ a:hover {
 
 /* グリッド */
 body {
+  --side: 2.5vw;
   display: grid;
-  grid-template-columns: 10px 1fr 10px;
+  grid-template-columns: 
+  var(--side) var(--side) 1fr
+  var(--side) var(--side);
   grid-template-rows:
   [head] 100px
   [main] auto
@@ -97,7 +100,15 @@ body::before {
 }
 /* コンテンツ */
 .mymain {
-  grid-row:main;
+  grid-column: 1 /-1;
+  grid-row: main;
+  display:grid;
+  grid-template-columns:inherit;
+  grid-template-columns:subgrid;
+}
+.mymain > *{
+  grid-column: 1 / -1;
+  min-width: 0;
 }
 h1 {
   font-size: var(--f1);
@@ -333,7 +344,7 @@ body::after {
 .pagination {
   grid-column:1 /-1;
   grid-row: auto;
-  justify-self: center;
+  justify-self: center; 
   margin-top: 40px;
 }
 .pagination .nav-links {
@@ -365,7 +376,6 @@ figure[class*="wp-block"] {
   margin-left: 0;
   margin-right: 0;
 }
-
 .alignleft{
   float: left;
   margin: 0 2em 2em 0;
@@ -380,7 +390,13 @@ figure[class*="wp-block"] {
   clear: both;
 }
 .myblocks{
-  display: flow-root;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-columns: subgrid;
+}
+.myblocks > *{
+  grid-column: 3/ -1;
+  min-width: 0;
 }
 .myblocks::after{
   content:'';
@@ -407,26 +423,10 @@ figure[class*="wp-block"] {
 
 /* PC */
 @media(min-width: 1024px) {
-
 body{
-  grid-template-columns: 
-  0.2fr repeat(6, 1fr) 0.2fr;
-  grid-template-rows:
-  [head] 100px
-  [main aside] auto
-  [foot] 100px;
-  grid-column-gap: 5%;
-  -webkit-column-gap: 5%;
-          column-gap: 5%; 
+  --side: 10vw;
 }
-.mymain{
-  grid-column: 2 /span 4;
-  align-self:start;
-}
-.myaside{
-  grid-column: 6/ span 2;
-  align-self: start;
-}
+
 .postlist img{
   --imgh: 31vw;
   /* PCはコンテンツの幅がページの横幅に対して５５％ */
