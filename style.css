@@ -7,9 +7,9 @@ Version:1.0
 */
 /* 変数 */
 :root {
-  --f1: 2.4rem;
-  --f2: 1.95rem;
-  --f3: 1.56rem:
+  --f1: 2.4em;
+  --f2: 1.95em;
+  --f3: 1.56em;
   --f4: 1.25em;
   --f5: 1em;
   --f6: 0.8em; 
@@ -21,7 +21,7 @@ body {
   font-family: sans-serif;
 }
 
-.myblocks figure:first-child {
+.myblocks .myfigure:first-child {
   margin: 0;
 }
 
@@ -104,7 +104,7 @@ body::before {
   grid-row: main;
   display:grid;
   grid-template-columns:inherit;
-  grid-template-columns:subgrid;
+  grid-template-columns: subgrid;
 }
 .mymain > *{
   grid-column: 1 / -1;
@@ -135,10 +135,12 @@ p {
 
 /* サイドメニュー */
 .myaside {
+  grid-column: 1 / -1;
   grid-row:aside;
   display:grid;
   grid-row-gap: 30px;
   row-gap: 30px;
+  background-color: #1b5e92;
 }
 .myaside section{
   border:solid 1px #dddddd;
@@ -153,7 +155,7 @@ p {
   margin-bottom: 30px;
   font-size: var(--f4);
   font-weight:normal;
-  color:#1b5e92;
+  color:#FFFFFF;
   text-align:center;
 }
 .myaside section ul{
@@ -164,6 +166,11 @@ p {
   grid-row-gap: 15px;
   row-gap: 15px;
 }
+.myaside section a{
+  color: #fff;
+
+}
+
 /* フッター */
 .myfooter {
   grid-row:foot;
@@ -224,7 +231,9 @@ body::after {
   width:1px;
   word-wrap: nomal !important;
 }
+
 /* 記事:前後の記事へのリンク */
+
 .post-navigation .nav-links{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -342,7 +351,7 @@ body::after {
 
 /* pagination */
 .pagination {
-  grid-column:1 /-1;
+  grid-column:1/-1;
   grid-row: auto;
   justify-self: center; 
   margin-top: 40px;
@@ -395,8 +404,9 @@ figure[class*="wp-block"] {
   grid-template-columns: subgrid;
 }
 .myblocks > *{
-  grid-column: 3/ -1;
+  grid-column: 3/ -3;
   min-width: 0;
+  
 }
 .myblocks::after{
   content:'';
@@ -411,22 +421,49 @@ figure[class*="wp-block"] {
 .wp-block-rss.aligncenter
 {text-align: center;}
 
-.myblocks{
-  box-sizing:border-box;
-}
+
 
 .myblocks *,
 .myblocks *::before,
 .myblocks *::after{
   box-sizing: inherit;
 }
+/* 幅広・全幅 */
+.alignwide{
+  grid-column:2 /-2;
+}
+.alignfull{
+  grid-column:1 / -1;
+}
 
 /* PC */
 @media(min-width: 1024px) {
-body{
+  
+  body{
   --side: 10vw;
+
+}
+.myheader{
+  grid-column: 2 / -2;
+  justify-self: start;
+}
+.mynav{
+  grid-column: 2 / -2;
+  justify-self: end;
+  align-self: center;
+}
+body::before{
+ margin-bottom: 0;
 }
 
+.mymain > *{
+  grid-column: 1 /-1;
+  min-width: 0;
+}
+/* 記事：前後の記事へのリンク */
+.post-navigation{
+  grid-column: 3 / -3;
+}
 .postlist img{
   --imgh: 31vw;
   /* PCはコンテンツの幅がページの横幅に対して５５％ */

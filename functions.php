@@ -19,6 +19,8 @@ function mytheme_setup()
   add_theme_support('wp-block-styles');
   // 埋め込みコンテンツ用のレスポンシブ化
   add_theme_support('responsive-embeds');
+  //幅広・全域　
+  add_theme_support('align-wide');
 }
 
 add_action('after_setup_theme', 'mytheme_setup');
