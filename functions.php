@@ -19,6 +19,8 @@ function mytheme_setup()
   add_theme_support('wp-block-styles');
   // 埋め込みコンテンツ用のレスポンシブ化
   add_theme_support('responsive-embeds');
+  //幅広・全域　
+  add_theme_support('align-wide');
 }
 
 add_action('after_setup_theme', 'mytheme_setup');
@@ -47,15 +49,43 @@ function mytheme_enqueue()
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue');
 
-// Font Awesomeの属性
-// function mytheme_sri($html, $handle)
-// {
-//   if ($handle === 'mytheme-fontawesome') {
-//     return str_replace(
-//       '/>',
-//       '' . ' />',
-//       $html
 
-//     );
-//   }
-// }
+// フロントとエディタの両方に適用するCSS
+function mytheme_both()
+{
+  wp_enqueue_style(
+    'mytheme-style-both',
+    get_template_directory_uri() . '/style-both.css',
+    array(),
+    filemtime(get_template_directory() . '/style-both.css')
+  );
+}
+add_action('enqueue_block_assets', 'mytheme_both');
+
+
+// Font Awesomeの属性
+function mytheme_sri($html, $handle)
+{
+  if ($handle === 'mytheme-fontawesome') {
+    return str_replace(
+      '/>',
+      'integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"' . ' />',
+      $html
+    );
+  }
+  return $html;
+}
+add_filter('style_loader_tag', 'mytheme_sri', 10, 2);
+
+// ブロツクスタイル
+function myjs_enqueue()
+{
+  wp_enqueue_script(
+    'myjs-style',
+    get_template_directory_uri() . '/mystyle.js',
+    array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
+    filemtime(get_template_directory() . '/mystyle.js')
+
+  );
+}
+add_action('enqueue_block_editor_assets', 'myjs_enqueue');

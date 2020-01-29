@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* 3-a  画像の高さおアレンジ */
+
+/* img{
+  max-height: 50vh;
+  object-fit: cover;
+} */
+
+/* 3-b */
+
+/* .myheight img{
+max-height: 50vh;
+object-fit: cover;
+} */
+
+/* 3-c */
+.is-style-my50vh img{
+  max-height: 50vh;
+  object-fit: cover;
+} 
