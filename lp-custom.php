@@ -79,7 +79,11 @@ Template Name: LP CUSTOM
     <?php endforeach;
       wp_reset_postdata();
     endif; ?>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
   </section>
 
   <section class="mypoint2" style="background-color:
@@ -126,4 +130,8 @@ Template Name: LP CUSTOM
 
 </main>
 
+<<<<<<< HEAD
 <?php get_footer(); ?>
+=======
+<?php get_footer(); ?>
+>>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
