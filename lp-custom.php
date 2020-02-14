@@ -88,10 +88,10 @@ Template Name: LP CUSTOM
       <?php echo wp_get_attachment_image(get_field('point2_img')['ID'], 'full'); ?>
     </figure>
     <div>
-    <p>
-    <?php the_field('point2_big'); ?>
-    </p>
-    <p><?php the_field('point2_small'); ?></p>
+      <p>
+        <?php the_field('point2_big'); ?>
+      </p>
+      <p><?php the_field('point2_small'); ?></p>
     </div>
   </section>
 
@@ -125,9 +125,4 @@ Template Name: LP CUSTOM
   </section>
 
 </main>
-
-<<<<<<< HEAD
 <?php get_footer(); ?>
-=======
-<?php get_footer(); ?>
->>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
