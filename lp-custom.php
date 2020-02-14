@@ -10,7 +10,7 @@ Template Name: LP CUSTOM
   linear-gradient(
     rgba(0, 0, 0, .5),
     rgba(0, 0, 0, .5)
-      ),
+      ), 
     url(<?php echo get_field('hero_img')['url']; ?>);">
 
     <h1><?php the_field('hero_main'); ?></h1>
