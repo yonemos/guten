@@ -10,7 +10,7 @@ Template Name: LP CUSTOM
   linear-gradient(
     rgba(0, 0, 0, .5),
     rgba(0, 0, 0, .5)
-      ),
+      ), 
     url(<?php echo get_field('hero_img')['url']; ?>);">
 
     <h1><?php the_field('hero_main'); ?></h1>
@@ -88,10 +88,10 @@ Template Name: LP CUSTOM
       <?php echo wp_get_attachment_image(get_field('point2_img')['ID'], 'full'); ?>
     </figure>
     <div>
-    <p>
-    <?php the_field('point2_big'); ?>
-    </p>
-    <p><?php the_field('point2_small'); ?></p>
+      <p>
+        <?php the_field('point2_big'); ?>
+      </p>
+      <p><?php the_field('point2_small'); ?></p>
     </div>
   </section>
 
@@ -126,8 +126,4 @@ Template Name: LP CUSTOM
 
 </main>
 
-<<<<<<< HEAD
-<?php get_footer(); ?>
-=======
-<?php get_footer(); ?>
->>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
+<<<<<<< HEAD <?php get_footer(); ?>=======<?php get_footer(); ?>>>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
