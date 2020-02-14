@@ -89,3 +89,49 @@ function myjs_enqueue()
   );
 }
 add_action('enqueue_block_editor_assets', 'myjs_enqueue');
+
+// グーテンベルグを使ったランディングページ
+
+function lp_guten_front()
+{
+  if (is_page('ランディングページ：グーテンベルグ')) {
+    wp_enqueue_style(
+      'lp-guten-front-css',
+      get_template_directory_uri() . '/lp-guten/lp-guten-front.css',
+      array(),
+      filemtime(get_template_directory() . '/lp-guten/lp-guten-front.css')
+    );
+  }
+}
+
+add_action('wp_enqueue_scripts', 'lp_guten_front');
+
+
+function lp_guten_both()
+{
+  global $post;
+  if ($post->post_title == 'ランディングページ：グーテンベルグ') {
+    wp_enqueue_style(
+      'lp-guten-both-css',
+      get_template_directory_uri() . '/lp-guten/lp-guten-both.css',
+      array(),
+      filemtime(get_template_directory() . '/lp-guten/lp-guten-both.css')
+    );
+  }
+}
+add_action('enqueue_block_assets', 'lp_guten_both');
+
+function lp_guten_editor()
+{
+  global $post;
+  if ($post->post_title == 'ランディングページ：グーテンベルグ') {
+    wp_enqueue_script(
+      'lp-guten-js',
+      get_template_directory_uri() . '/lp-guten/lp-guten.js',
+      array(),
+      filemtime(get_template_directory() . '/lp-guten/lp-guten.js')
+    );
+  }
+}
+
+add_action('enqueue_block_editor_assets', 'lp_guten_editor');
