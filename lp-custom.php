@@ -125,5 +125,4 @@ Template Name: LP CUSTOM
   </section>
 
 </main>
-
-<<<<<<< HEAD <?php get_footer(); ?>=======<?php get_footer(); ?>>>>>>>> aa5f190f5ca95ce6c96c2e3216dac9916fd2d0d1
+<?php get_footer(); ?>
